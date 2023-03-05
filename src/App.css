@@ -1,0 +1,73 @@
+.carousel-inner> .carousel-item> img {
+	width: 640px; 
+	height: 450px; 
+	border-radius: 5px;
+}
+
+.carousel-item {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+.text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	font-size: 28px;
+	color: white;
+	font-weight: bold;
+	-webkit-text-stroke: 1px black;
+}
+
+.select {
+	height: 250px;
+	transition-duration: 0.8s;
+}
+
+.select:hover {
+	filter: opacity(.5);
+}
+
+.text-select {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	font-size: 24px;
+	color: white;
+	font-weight: bold;
+	-webkit-text-stroke: 1px black;
+}
+
+.nav-link {
+	color: black;
+}
+
+.nav-link:hover {
+	text-decoration: none;
+	color: grey;
+}
+
+#paybtn {
+	width: 350%;
+}
+
+.success {
+	text-decoration: none;
+}
+
+.success:hover {
+	color: orangered;
+	text-decoration: none;
+}
+
+#login {
+	position: absolute;
+	right: 30px;
+}
+
+#logout {
+	position: absolute;
+	right: 50px;	
+}
