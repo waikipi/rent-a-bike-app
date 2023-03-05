@@ -33,7 +33,6 @@
     "server": "node server/index.js"
   },
   "proxy": "http://localhost:3001",
-  "type": "module",
   "eslintConfig": {
     "extends": [
       "react-app",
