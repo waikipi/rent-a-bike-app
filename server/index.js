@@ -27,7 +27,8 @@ app.use(
 	})
   )
 
-const MY_DOMAIN = 'http://localhost:3000/success'
+//const MY_DOMAIN = 'http://localhost:3000/success'
+const MY_DOMAIN = 'https://rent-a-bike-app.herokuapp.com/success'
 
 // receiving the order data for saving in database
 app.post('/orders',  async (req,res)=>{
