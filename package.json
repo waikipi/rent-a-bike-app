@@ -41,7 +41,7 @@
     "eject": "react-scripts eject",
     "server": "node server/index.js"
   },
-  "homepage": "/",
+  "homepage": "./",
   "eslintConfig": {
     "extends": [
       "react-app",
