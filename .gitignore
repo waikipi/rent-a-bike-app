@@ -2,6 +2,7 @@
 
 # dependencies
 node_modules
+config-overrides.js
 /.pnp
 .pnp.js
 
