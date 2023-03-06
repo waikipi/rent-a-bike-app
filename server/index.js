@@ -31,7 +31,7 @@ app.use(
 const MY_DOMAIN = 'https://rent-a-bike-app.herokuapp.com/success'
 
 // receiving the order data for saving in database
-app.post('/orders',  async (req,res)=>{
+app.post('https://rent-a-bike-app.herokuapp.com//orders',  async (req,res)=>{
 	const {user, totalPrice, cart} = req.body
 	let time = []
 	let quantity = []
@@ -51,14 +51,14 @@ app.post('/orders',  async (req,res)=>{
 })
 
 // to retrieve the data from the database for showing in history
-app.get('/orders/:user', async (req, res) =>{
+app.get('https://rent-a-bike-app.herokuapp.com//orders/:user', async (req, res) =>{
 	console.log(req.params)
 	const data = await Order.find({user: req.params.user})
 	res.json(data)
 })
 
 // route for stripe check out test
-app.post('/create-checkout-session', async (req, res) => {
+app.post('https://rent-a-bike-app.herokuapp.com//create-checkout-session', async (req, res) => {
 	const session = await stripe.checkout.sessions.create({
 	  line_items: [
 		{
