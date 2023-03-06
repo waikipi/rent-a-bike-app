@@ -14,6 +14,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.2",
     "bcryptjs": "^2.4.3",
+    "browserify-zlib": "^0.2.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
@@ -32,7 +33,6 @@
     "eject": "react-scripts eject",
     "server": "node server/index.js"
   },
-  "proxy": "https://rent-a-bike-app.herokuapp.com",
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -53,7 +53,6 @@
   },
   "devDependencies": {
     "assert": "^2.0.0",
-    "browserify-zlib": "^0.2.0",
     "crypto-browserify": "^3.12.0",
     "fs": "^0.0.1-security",
     "net": "^1.0.2",
