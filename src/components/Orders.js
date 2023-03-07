@@ -3,7 +3,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 
 export default function Orders() {
   const [orderData, setOrderData] = useState([]);
-  const MY_DOMAIN = 'https://rent-a-bike-app.herokuapp.com/orders'
+  //const MY_DOMAIN = 'https://rent-a-bike-app.herokuapp.com/orders'
   const { user } = useAuth0()
   const biker = user.email
   console.log(biker)
