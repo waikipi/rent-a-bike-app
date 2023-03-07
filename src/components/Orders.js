@@ -11,7 +11,7 @@ export default function Orders() {
   useEffect(() => {
     //fetch(`http://localhost:3001/orders/${biker}`)
 	//fetch(`${MY_DOMAIN}/${biker}`)
-	fetch(`orders/${biker}`)
+	fetch(`/orders/${biker}`)
       .then((res) => res.json())
       .then((data) => {
 		setOrderData(data)
