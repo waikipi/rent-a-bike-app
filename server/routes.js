@@ -1,46 +1,15 @@
-import express, { urlencoded, json } from "express"
+import { Router } from "express"
+import Order from '../src/models/Order.js'
+import '../src/database.js'
 import Stripe from "stripe"
-import cors from "cors"
-import Order from './models/Order.js'
-import session from "express-session"
-import { dirname, join } from "path";
-import { fileURLToPath } from "url";
-import './database.js'
 
+const router = Router();
 
+const MY_DOMAIN = 'https://rent-a-bike-app.herokuapp.com/success'
 const stripe = new Stripe("sk_test_51MLyLWJDKVz9SMmjBPON3Ul4WWUjhm44gLDd5ZHCYIjpVlIkLnCPYdXYkJg5YZsv2fYId2pBqEDPJSHk2S70LoBg00RLSQWP6x");
 
-const app = express();
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const publicPath = join(__dirname, '../build');
-app.use(express.static(publicPath));
-app.get('*', (req, res) => {
-   res.sendFile(join(publicPath, '../build/index.html'));
-});
-
-const PORT = process.env.PORT || 3001;
-
-app.use(cors({ origin: "*" }));
-app.use(urlencoded({extended: true}));
-app.use(json());
-app.use((req, res, next) => {
-	res.header('Access-Control-Allow-Origin', '*');
-	next();
-  }); 
-
-app.use(
-	session({
-	  secret: "secret",
-	  resave: true,
-	  saveUninitialized: true
-	})
-  )
-
-//const MY_DOMAIN = 'http://localhost:3000/success'
-const MY_DOMAIN = 'https://rent-a-bike-app.herokuapp.com/success'
-
 // receiving the order data for saving in database
-app.post('/orders',  async (req,res)=>{
+router.post('/orders',  async (req,res)=>{
 	const {user, totalPrice, cart} = req.body
 	let time = []
 	let quantity = []
@@ -60,14 +29,14 @@ app.post('/orders',  async (req,res)=>{
 })
 
 // to retrieve the data from the database for showing in history
-app.get('/orders', async (req, res) =>{
+router.get('/orders/:user', async (req, res) =>{
 	console.log(req.params)
 	const data = await Order.find({user: req.params.user})
 	res.json(data)
 })
 
 // route for stripe check out test
-app.post('/create-checkout-session', async (req, res) => {
+router.post('/create-checkout-session', async (req, res) => {
 	const session = await stripe.checkout.sessions.create({
 	  line_items: [
 		{
@@ -89,7 +58,4 @@ app.post('/create-checkout-session', async (req, res) => {
 	res.redirect(303, session.url);
   })
 
-app.listen(PORT, () => {
-  console.log("Server on port", PORT);
-});
-
+export default router
