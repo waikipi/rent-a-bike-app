@@ -1,4 +1,4 @@
-import express, { urlencoded, json } from "express"
+/*import express, { urlencoded, json } from "express"
 import Stripe from "stripe"
 import cors from "cors"
 import Order from './models/Order.js'
@@ -93,3 +93,4 @@ app.listen(PORT, () => {
   console.log("Server on port", PORT);
 });
 
+*/
