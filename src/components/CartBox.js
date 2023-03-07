@@ -23,14 +23,14 @@ const styles = {
 
 const CartBox = ({cart, deleteBike, isBikeInCart, totalPrice}) => {
 
-	const MY_DOMAIN = 'https://rent-a-bike-app.herokuapp.com/orders'
+	//const MY_DOMAIN = 'https://rent-a-bike-app.herokuapp.com/orders'
 	const { user } = useAuth0()
 	
 		const handleSubmit = async (e) => {
 			const biker = user.email
 			try{
 				//const {data} = await axios.post('http://localhost:3001/orders',
-				const {data} = await axios.post(MY_DOMAIN,
+				const {data} = await axios.post('/orders',
 			{	
 				user:biker,
 				cart:cart,
@@ -68,7 +68,7 @@ const CartBox = ({cart, deleteBike, isBikeInCart, totalPrice}) => {
 								<p>You will be forwarded to our secure payment platform</p>
 							</div>
 							<div class="modal-footer">
-								<form action="http://localhost:3001/create-checkout-session" method="POST">
+								<form action="/create-checkout-session" method="POST">
 									<button type="button" class="btn btn-secondary m-2" data-bs-dismiss="modal">Close</button>
 									<button type="submit" class="btn btn-primary">Pay</button>
 								</form>
