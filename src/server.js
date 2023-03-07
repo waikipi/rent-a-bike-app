@@ -1,14 +1,23 @@
 import express, { urlencoded, json } from "express"
 import Stripe from "stripe"
 import cors from "cors"
-import Order from '../src/models/Order.js'
+import Order from './models/Order.js'
 import session from "express-session"
-import '../src/database.js'
+import { dirname, join } from "path";
+import { fileURLToPath } from "url";
+import './database.js'
 
 
 const stripe = new Stripe("sk_test_51MLyLWJDKVz9SMmjBPON3Ul4WWUjhm44gLDd5ZHCYIjpVlIkLnCPYdXYkJg5YZsv2fYId2pBqEDPJSHk2S70LoBg00RLSQWP6x");
 
 const app = express();
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const publicPath = join(__dirname, 'public');
+app.use(express.static(publicPath));
+app.get('*', (req, res) => {
+   res.sendFile(join(publicPath, 'index.html'));
+});
+
 const PORT = process.env.PORT || 3001;
 
 app.use(cors({ origin: "*" }));
