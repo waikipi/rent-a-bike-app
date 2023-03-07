@@ -60,7 +60,7 @@ app.post('/orders',  async (req,res)=>{
 })
 
 // to retrieve the data from the database for showing in history
-app.get('/orders/:user', async (req, res) =>{
+app.get('/orders', async (req, res) =>{
 	console.log(req.params)
 	const data = await Order.find({user: req.params.user})
 	res.json(data)
