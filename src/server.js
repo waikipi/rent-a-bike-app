@@ -1,4 +1,4 @@
-/*import express, { urlencoded, json } from "express"
+import express, { urlencoded, json } from "express"
 import Stripe from "stripe"
 import cors from "cors"
 import Order from './models/Order.js'
@@ -12,10 +12,10 @@ const stripe = new Stripe("sk_test_51MLyLWJDKVz9SMmjBPON3Ul4WWUjhm44gLDd5ZHCYIjp
 
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const publicPath = join(__dirname, '..', 'public');
+const publicPath = join(__dirname, '../build');
 app.use(express.static(publicPath));
 app.get('*', (req, res) => {
-   res.sendFile(join(publicPath, 'index.html'));
+   res.sendFile(join(publicPath, '../build/index.html'));
 });
 
 const PORT = process.env.PORT || 3001;
@@ -93,4 +93,3 @@ app.listen(PORT, () => {
   console.log("Server on port", PORT);
 });
 
-*/
