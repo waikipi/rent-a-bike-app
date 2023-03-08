@@ -14,6 +14,11 @@ const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const publicPath = join(__dirname, '../build');
 app.use(express.static(publicPath));
+app.get('/orders/:user', async (req, res) =>{
+	console.log(req.params)
+	const data = await Order.find({user: req.params.user})
+	res.json(data)
+})
 app.get('*', (req, res) => {
    res.sendFile(join(publicPath, '../build/index.html'));
 });
