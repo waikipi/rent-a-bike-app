@@ -9,6 +9,30 @@ import '../src/database.js'
 
 const stripe = new Stripe("sk_test_51MLyLWJDKVz9SMmjBPON3Ul4WWUjhm44gLDd5ZHCYIjpVlIkLnCPYdXYkJg5YZsv2fYId2pBqEDPJSHk2S70LoBg00RLSQWP6x");
 
+// route for stripe check out test
+app.post('/create-checkout-session', async (req, res) => {
+	const session = await stripe.checkout.sessions.create({
+	  line_items: [
+		{
+		  price_data: {
+			currency: 'usd',
+			product_data: {
+			  name: 'Please use the test credit card number 4242 4242 4242 4242 to go through successfully with the payment. You can use any expiry date and CVC number.',
+			},
+			unit_amount: 1000,
+		  },
+		  quantity: 1,
+		},
+	  ],
+	  mode: 'payment',
+	  success_url: `${MY_DOMAIN}?success=true`,
+	  cancel_url: `${MY_DOMAIN}?canceled=true`,
+	});
+  
+	res.redirect(303, session.url);
+  })
+
+
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const publicPath = join(__dirname, '../build');
@@ -64,28 +88,6 @@ app.get('/orders/:user', async (req, res) =>{
 	res.json(data)
 })
 
-// route for stripe check out test
-app.post('/create-checkout-session', async (req, res) => {
-	const session = await stripe.checkout.sessions.create({
-	  line_items: [
-		{
-		  price_data: {
-			currency: 'usd',
-			product_data: {
-			  name: 'Please use the test credit card number 4242 4242 4242 4242 to go through successfully with the payment. You can use any expiry date and CVC number.',
-			},
-			unit_amount: 1000,
-		  },
-		  quantity: 1,
-		},
-	  ],
-	  mode: 'payment',
-	  success_url: `${MY_DOMAIN}?success=true`,
-	  cancel_url: `${MY_DOMAIN}?canceled=true`,
-	});
-  
-	res.redirect(303, session.url);
-  })
 
 app.listen(PORT, () => {
   console.log("Server on port", PORT);
