@@ -9,6 +9,7 @@ import '../src/database.js'
 
 const stripe = new Stripe("sk_test_51MLyLWJDKVz9SMmjBPON3Ul4WWUjhm44gLDd5ZHCYIjpVlIkLnCPYdXYkJg5YZsv2fYId2pBqEDPJSHk2S70LoBg00RLSQWP6x");
 
+const app = express();
 // route for stripe check out test
 app.post('/create-checkout-session', async (req, res) => {
 	const session = await stripe.checkout.sessions.create({
@@ -31,9 +32,6 @@ app.post('/create-checkout-session', async (req, res) => {
   
 	res.redirect(303, session.url);
   })
-
-
-const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const publicPath = join(__dirname, '../build');
 app.use(express.static(publicPath));
