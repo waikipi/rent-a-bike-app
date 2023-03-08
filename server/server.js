@@ -14,7 +14,6 @@ const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const publicPath = join(__dirname, '../build');
 app.use(express.static(publicPath));
-app.use(routes)
 app.get('*', (req, res) => {
    res.sendFile(join(publicPath, '../build/index.html'));
 });
@@ -37,7 +36,7 @@ app.use(
 	})
   )
 
-
+  app.use(routes)
 
 //const MY_DOMAIN = 'http://localhost:3000/success'
 /*const MY_DOMAIN = 'https://rent-a-bike-app.herokuapp.com/success'
