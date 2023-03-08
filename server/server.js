@@ -13,7 +13,7 @@ const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const publicPath = join(__dirname, '../build');
 app.use(express.static(publicPath));
-app.get('https://rent-a-bike-app.herokuapp.com', (req, res) => {
+app.get('https://rent-a-bike-app.herokuapp.com/success', (req, res) => {
    res.sendFile(join(publicPath, '../build/index.html'));
 });
 
