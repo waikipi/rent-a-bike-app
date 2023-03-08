@@ -1,4 +1,4 @@
-import { Router } from "express"
+/*import { Router } from "express"
 import Order from '../src/models/Order.js'
 import '../src/database.js'
 import Stripe from "stripe"
@@ -58,4 +58,4 @@ router.post('/create-checkout-session', async (req, res) => {
 	res.redirect(303, session.url);
   })
 
-export default router
+export default router*/

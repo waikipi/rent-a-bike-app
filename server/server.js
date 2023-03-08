@@ -1,20 +1,19 @@
 import express, { urlencoded, json } from "express"
-//import Stripe from "stripe"
+import Stripe from "stripe"
 import cors from "cors"
-//import Order from '../src/models/Order.js'
+import Order from '../src/models/Order.js'
 import session from "express-session"
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import '../src/database.js'
-import routes from './routes.js'
 
-//const stripe = new Stripe("sk_test_51MLyLWJDKVz9SMmjBPON3Ul4WWUjhm44gLDd5ZHCYIjpVlIkLnCPYdXYkJg5YZsv2fYId2pBqEDPJSHk2S70LoBg00RLSQWP6x");
+const stripe = new Stripe("sk_test_51MLyLWJDKVz9SMmjBPON3Ul4WWUjhm44gLDd5ZHCYIjpVlIkLnCPYdXYkJg5YZsv2fYId2pBqEDPJSHk2S70LoBg00RLSQWP6x");
 
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const publicPath = join(__dirname, '../build');
 app.use(express.static(publicPath));
-app.get('*', (req, res) => {
+app.get('https://rent-a-bike-app.herokuapp.com', (req, res) => {
    res.sendFile(join(publicPath, '../build/index.html'));
 });
 
@@ -36,10 +35,7 @@ app.use(
 	})
   )
 
-  app.use(routes)
-
-//const MY_DOMAIN = 'http://localhost:3000/success'
-/*const MY_DOMAIN = 'https://rent-a-bike-app.herokuapp.com/success'
+const MY_DOMAIN = 'https://rent-a-bike-app.herokuapp.com/success'
 
 // receiving the order data for saving in database
 app.post('/orders',  async (req,res)=>{
@@ -89,7 +85,7 @@ app.post('/create-checkout-session', async (req, res) => {
 	});
   
 	res.redirect(303, session.url);
-  })*/
+  })
 
 app.listen(PORT, () => {
   console.log("Server on port", PORT);
