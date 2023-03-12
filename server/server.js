@@ -4,7 +4,7 @@ import session from "express-session"
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import routes from './routes.js'
-import '../database.js'
+import '../src/database.js'
 
 
 const app = express();

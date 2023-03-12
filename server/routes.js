@@ -1,6 +1,6 @@
 import { Router } from "express"
-import Order from '../models/Order.js'
-import '../database.js'
+import Order from '../src/models/Order.js'
+import '../src/database.js'
 import Stripe from "stripe"
 
 const router = Router();

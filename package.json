@@ -28,7 +28,7 @@
   },
   "type": "module",
   "scripts": {
-    "start": "node src/server/server.js",
+    "start": "node server/server.js",
     "dev": "react-script start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
