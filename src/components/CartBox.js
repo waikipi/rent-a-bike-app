@@ -59,11 +59,16 @@ const CartBox = ({cart, deleteBike, isBikeInCart, totalPrice}) => {
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLabel">Payment</h5>
+								<h5 class="modal-title" id="exampleModalLabel">Booking confirmed!!</h5>
 								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
-								<p>You will be forwarded to our secure payment platform</p>
+								<p>The ticket of your booking is already available on History section. But first,
+									I encourage you to finish the payment simulation by clicking on the "Pay" button.
+									Please use the credit card number <b>4242 4242 4242 4242</b> to go through 
+									successfully with the process. The rest of the fields can be filled in as you prefer. 
+									Thank you!!
+								</p>
 							</div>
 							<div class="modal-footer">
 								<form action="/create-checkout-session" method="POST">
