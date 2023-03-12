@@ -12,22 +12,22 @@ const Home = () => {
 					<div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
 						<div className="carousel-inner">
 							<div className="carousel-item active">
-								<img src="../images/image1.jpg" className="d-block w-100" alt="..."/>
+								<img src="./images/image1.jpg" className="d-block w-100" alt="..."/>
 								<div className="text">It`s a bike's world baby...</div>
 								<p>Photo of Markus Spiske in Unsplash</p>
 							</div>
 							<div className="carousel-item">
-								<img src="../images/image2.jpg" className="d-block w-100" alt="..."/>
+								<img src="./images/image2.jpg" className="d-block w-100" alt="..."/>
 								<div className="text">Enjoy the city</div>
 								<p>Photo of Roman Koester in Unsplash</p>
 							</div>
 							<div className="carousel-item">
-								<img src="../images/image3.jpg" className="d-block w-100" alt="..."/>
+								<img src="./images/image3.jpg" className="d-block w-100" alt="..."/>
 								<div className="text">Booking is easy and quick, just with a few clicks</div>
 								<p>Photo of Sincerely Media in Unsplash</p>
 							</div>
 							<div className="carousel-item">
-								<img src="../images/image4.jpg" className="d-block w-100" alt="..."/>
+								<img src="./images/image4.jpg" className="d-block w-100" alt="..."/>
 								<div className="text">All kind of bikes</div>
 								<p>Photo of Viktor Bystrov in Unsplash</p>
 							</div>
