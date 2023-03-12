@@ -63,7 +63,7 @@ const CartBox = ({cart, deleteBike, isBikeInCart, totalPrice}) => {
 								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
-								<p>The ticket of your booking is already available on History section. But first,
+								<p>The ticket of your booking is already available on the History section. But first,
 									I encourage you to finish the payment simulation by clicking on the "Pay" button.
 									Please use the credit card number <b>4242 4242 4242 4242</b> to go through 
 									successfully with the process. The rest of the fields can be filled in as you prefer. 
